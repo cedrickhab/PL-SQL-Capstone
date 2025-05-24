@@ -697,7 +697,7 @@ WHERE Product_ID = 2;
 ![denied update and delete in weekdays and holidays](./screenshots/Phase%20VII/phase%20VII%20test%203.png)
 
 ---
-> 📁 [`/sql/create_logical_model.sql`](./WED_27443_RETAIL.SQL)  
+> 📁 ['click here to view all sql codes'](./WED_27443_RETAIL.SQL)  
 
 
 
