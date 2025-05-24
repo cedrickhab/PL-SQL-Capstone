@@ -288,7 +288,85 @@ GRANT SYSDBA to cedrick27443;
 ![OEM](./screenshots/Phase%20IV/OEM.png)
 
 ---
+## 🧱 Phase V: Table Implementation and Data Insertion
 
+### 🎯 Objective
+
+To implement the physical database structure based on the logical model and insert meaningful, testable data. This phase ensures structural integrity, accurate constraints, and realistic data to support business operations and future PL/SQL programming.
+
+---
+
+### 🔨 Step 1: Table Creation
+
+✅ The following tables were created in the schema `WED_27443_Cedrick_Retail_DB` using SQL Developer:
+
+---
+
+#### 🧱 Table: Suppliers
+
+![Suppliers Table Created](./screenshots/Phase%20V/supplier%20created.png)
+
+---
+
+#### 🧱 Table: Products
+
+![Products Table Created](./screenshots/Phase%20V/prod%20created.png)
+
+---
+
+#### 🧱 Table: Sales
+
+![Sales Table Created](./screenshots/Phase%20V/sales%20created.png)
+
+---
+
+#### 🧱 Table: Supplier_Product
+
+![Supplier_Product Table Created](./screenshots/Phase%20V/sup_pro%20created.png)
+
+---
+
+### 📥 Step 2: Data Insertion
+
+Realistic data entries were inserted for each table to reflect meaningful retail operations.
+
+---
+
+#### 🗃️ Insertion: Suppliers
+
+![Suppliers Data Inserted](./screenshots/Phase%20V/supp%20data.png)
+
+---
+
+#### 🗃️ Insertion: Products
+
+![Products Data Inserted](./screenshots/Phase%20V/pro%20data.png)
+
+---
+
+#### 🗃️ Insertion: Sales
+
+![Sales Data Inserted](./screenshots/Phase%20V/sales%20data.png)
+
+---
+
+#### 🗃️ Insertion: Supplier_Product
+
+![Supplier_Product Data Inserted](./screenshots/Phase%20V/sup_pro%20data.png) 
+
+---
+### 🔍 Step 3: Data Integrity Validation
+
+A join query was executed to validate relationships and ensure referential integrity.
+
+> ✅ Result confirmed that:
+- All foreign keys work as expected
+- Many-to-many and one-to-many relationships are intact
+- Data is consistent and logically connected
+
+![Query Output](./screenshots/Phase%20V/data%20integrity.png)
+
+---
 
 
 
