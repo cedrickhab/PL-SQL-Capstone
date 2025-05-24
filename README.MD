@@ -239,6 +239,56 @@ To design a normalized, well-constrained, and relational data model that accurat
 ![ERD - Logical Model](./screenshots/Phase%20III/ERD%202.png)
 
 ---
+## 🏗️ Phase IV: Database Creation and Access Setup (via SQL Developer)
+
+### 🎯 Objective
+
+To create a dedicated Oracle PL/SQL database environment using SQL Developer as an **alternative to Oracle Enterprise Manager (OEM)**. This setup provides full access control and prepares the development environment for Phase V.
+
+---
+
+### 🔐 Task 1: PDB and User Creation (SQL Developer)
+
+The user and development environment were set up inside an Oracle **Pluggable Database (PDB)** using **SQL Developer**, which allows graphical interaction and full administrative capabilities.
+
+---
+
+### 🧰 Configuration Summary
+
+| Component             | Value                                  |
+|------------------------|----------------------------------------|
+| **Tool Used**         | SQL Developer (OEM Alternative)         |
+| **PDB Name**          | `wed_27443_cedrick_Retail_db`           |
+| **User Created**      | `cedrick27443`                          |
+| **Password**          | `cedrick`                               |
+| **Privileges Granted**| Full DBA privileges                     |
+
+---
+
+### 📸 Screenshot: PDB Creation in SQL Developer
+
+![PDB Creation](./screenshots/Phase%20IV/pdb.png)
+
+---
+
+### 📸 Screenshot: User Created & Privileges Granted
+
+![Privileges](./screenshots/Phase%20IV/privileges.png)
+
+```sql
+-- SQL run inside SQL plus
+
+alter session set container=WED_27443_Cedrick_Retail_DB;
+CREATE USER cedrick27443 IDENTIFIED BY cedrick;
+GRANT all privileges to cedrick27443;
+GRANT SYSDBA to cedrick27443;
+```
+---
+<!-- OEM Screenshot -->
+![OEM](./screenshots/Phase%20IV/OEM.png)
+
+---
+
 
 
 
