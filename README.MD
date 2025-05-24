@@ -161,6 +161,84 @@ flowchart TD
 ```
 
 ---
+## 🧩 Phase III: Logical Model Design
+
+### 🎯 Objective
+
+This project addresses the inventory challenges of small retail stores, including overstocking, stockouts, and poor supplier coordination. The logical model developed in this phase is based on the real-world needs outlined in Phase I and the process workflow modeled in Phase II.
+
+To design a normalized, well-constrained, and relational data model that accurately represents the inventory, sales, and supplier interactions of a small retail business.
+
+---
+
+### 🗃️ Entities & Attributes
+
+#### 📦 Products
+
+| Attribute    | Type         | Constraint                      |
+|--------------|--------------|----------------------------------|
+| Product_ID   | NUMBER       | Primary Key (Auto-generated)     |
+| Name         | VARCHAR(100) | NOT NULL                         |
+| Price        | NUMBER(10,2) | NOT NULL, CHECK (Price > 0)      |
+| Quantity     | NUMBER       | DEFAULT 0, CHECK (Quantity ≥ 0)  |
+| Created_At   | DATE         | DEFAULT SYSDATE                  |
+
+#### 🧾 Sales
+
+| Attribute      | Type       | Constraint                          |
+|----------------|------------|-------------------------------------|
+| Sale_ID        | NUMBER     | Primary Key (Auto-generated)        |
+| Product_ID     | NUMBER     | Foreign Key → Products              |
+| Quantity_Sold  | NUMBER     | NOT NULL, CHECK (Quantity_Sold > 0) |
+| Sale_Date      | DATE       | DEFAULT SYSDATE                     |
+
+#### 🚚 Suppliers
+
+| Attribute     | Type         | Constraint                       |
+|---------------|--------------|----------------------------------|
+| Supplier_ID   | NUMBER       | Primary Key (Auto-generated)     |
+| Name          | VARCHAR(100) | NOT NULL                         |
+| Contact       | VARCHAR(100) | UNIQUE, NOT NULL                 |
+| Created_At    | DATE         | DEFAULT SYSDATE                  |
+
+#### 🔗 Supplier_Product (Junction Table)
+
+| Attribute     | Type    | Constraint                             |
+|---------------|---------|----------------------------------------|
+| Supplier_ID   | NUMBER  | Foreign Key → Suppliers, part of PK     |
+| Product_ID    | NUMBER  | Foreign Key → Products, part of PK      |
+| Supply_Date   | DATE    | DEFAULT SYSDATE                         |
+
+---
+
+### 🔄 Relationships & Constraints
+
+- 🧩 **Suppliers ↔ Products** — *Many-to-Many* via `Supplier_Product`  
+- 📈 **Products → Sales** — *One-to-Many* 
+- ✅ Foreign keys ensure data integrity  
+- ✅ CHECK constraints enforce data validity  
+- ✅ DEFAULT and UNIQUE improve usability and data quality  
+
+---
+
+### 📐 Normalization (3NF Verified)
+
+- ✅ **1NF** – Atomic values only  
+- ✅ **2NF** – All attributes fully dependent on PKs  
+- ✅ **3NF** – No transitive dependencies  
+
+---
+### 🖼️ ERD Diagram
+
+> 🟩 **Visual Placeholder: Logical Model ERD**  
+> 👉 *This image illustrates the tables, keys, and relationships defined above via Mermaid chart and also SQL developer.*
+
+![ERD - Logical Model](./screenshots/Phase%20III/ERD%201.png)
+
+---
+![ERD - Logical Model](./screenshots/Phase%20III/ERD%202.png)
+
+---
 
 
 
