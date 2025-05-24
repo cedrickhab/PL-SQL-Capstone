@@ -92,7 +92,75 @@ flowchart TD
 ```
 
 ---
+## 📘 Phase II: Business Process Modeling (MIS)
+### 🔍 Scope & Purpose
+This phase models the **inventory workflow** from stock monitoring to sales and low-stock alerting. It demonstrates how an **MIS supports decision-making** through automation and accurate data flow.
 
+### 👥 Key Actors
+
+| Role               | Responsibility                             |
+|--------------------|---------------------------------------------|
+| Inventory Manager  | Monitors stock and updates inventory        |
+| Supplier           | Delivers products                           |
+| Sales Clerk        | Records sales                               |
+| Inventory System   | Maintains stock data, evaluates thresholds  |
+| Alert System       | Notifies when stock is low                  |
 
 ---
+
+### 🖼️ Process Diagram
+
+✅ **Tools Used:**  
+- **Mermaid** (Lightweight Markdown-based modeling)  
+- **Draw.io** (Standard BPMN format)  
+
+#### 🔗 Mermaid Diagram  
+![Mermaid Diagram](./screenshots/Phase%20II/phaseII.png)
+
 ---
+
+#### 🧩 Draw.io BPMN Diagram  
+![Draw.io Diagram](./screenshots/Phase%20II/PhaseII.drawio.png)
+
+---
+
+### 🧠 MIS Value & Flow Summary
+The diagram starts with the **Inventory Manager** monitoring stock. When a product is low, they receive deliveries from the **Supplier**. The system is then updated. When a **Sales Clerk** records a sale, the inventory is updated again. After each update, the **Inventory System** evaluates whether the stock has fallen below the set threshold. If so, the **Alert System** automatically notifies the manager for restocking.  
+
+This workflow supports MIS by:
+- Enabling **real-time decision-making**  
+- Reducing **manual effort** through automation  
+- **Improving efficiency** in retail operations  
+
+---
+
+### 💻 Mermaid Code Reference
+
+```mermaid
+flowchart TD
+  start([● Process Start]) --> A1["🧑 Inventory Manager\nMonitor Stock Levels"]
+  A1 --> A2["📦 Receive Products"]
+  A2 --> B1["🚚 Supplier Delivery"]
+  B1 --> C1["🧾 Record Sale"]
+  C1 --> A3["📊 Update Inventory"]
+  A2 --> A3
+  A3 --> D1{{"🔍 Stock < Threshold?"}}
+  D1 -- Yes --> E1["❗ Send Alert"]
+  D1 -- No --> finish([✅ Process End])
+  E1 --> finish
+
+  classDef manager fill:#f9f,stroke:#333;
+  classDef supplier fill:#bbf,stroke:#333;
+  classDef clerk fill:#9f9,stroke:#333;
+  classDef system fill:#f96,stroke:#333;
+
+  class A1,A2,A3 manager
+  class B1 supplier
+  class C1 clerk
+  class D1,E1 system
+```
+
+---
+
+
+
